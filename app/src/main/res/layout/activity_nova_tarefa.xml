@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NovaTarefaActivity">
+
+    <TextView
+            android:layout_gravity="right|center"
+            android:id="@+id/textDetTarefa2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Título:"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="87dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="45dp" android:layout_marginStart="45dp"/>
+    <EditText
+            android:id="@+id/editTituloNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:ems="12"
+            android:hint="Digite o título"
+            android:inputType="text"
+            android:padding="5dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="82dp" android:layout_marginEnd="33dp" android:layout_marginRight="33dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:layout_gravity="right|center"
+            android:id="@+id/textDetDescricao2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Descrição:"
+            app:layout_constraintEnd_toEndOf="@+id/textDetTarefa2"
+            app:layout_constraintTop_toBottomOf="@+id/textDetTarefa2"
+            app:layout_constraintBottom_toTopOf="@+id/textDtLimite2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="18dp" android:layout_marginStart="18dp"/>
+    <EditText
+            android:layout_gravity="left|center"
+            android:id="@+id/editDescricaoNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:ems="12"
+            android:inputType="textMultiLine"
+            android:hint="Descrição"
+            app:layout_constraintStart_toStartOf="@+id/editTituloNovo"
+            app:layout_constraintTop_toBottomOf="@+id/editTituloNovo"
+            app:layout_constraintBottom_toTopOf="@+id/editDtLimiteNovo" android:layout_marginEnd="33dp"
+            android:layout_marginRight="33dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:id="@+id/textDetDificuldade2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:padding="5dp"
+            android:text="Dificuldade:"
+            app:layout_constraintEnd_toEndOf="@+id/textDtLimite2"
+            app:layout_constraintTop_toBottomOf="@+id/textDtLimite2"
+            app:layout_constraintBottom_toTopOf="@+id/textDetEstado2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="10dp" android:layout_marginStart="10dp"/>
+    <Spinner
+            android:id="@+id/spinnerDificuldadeNovo"
+            android:layout_width="254dp"
+            android:layout_height="34dp"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="@+id/editDtLimiteNovo"
+            app:layout_constraintTop_toBottomOf="@+id/editDtLimiteNovo"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerStatusNovo" android:layout_marginEnd="35dp"
+            android:layout_marginRight="35dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:layout_gravity="right|center"
+            android:id="@+id/textDtLimite2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Data Limite:"
+            app:layout_constraintEnd_toEndOf="@+id/textDetDescricao2"
+            app:layout_constraintTop_toBottomOf="@+id/textDetDescricao2"
+            app:layout_constraintBottom_toTopOf="@+id/textDetDificuldade2" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="9dp" android:layout_marginStart="9dp"/>
+    <EditText
+            android:layout_gravity="left|center"
+            android:id="@+id/editDtLimiteNovo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:ems="12"
+            android:inputType="datetime"
+            android:hint="Escolha a data limite"
+            app:layout_constraintStart_toStartOf="@+id/editDescricaoNovo"
+            app:layout_constraintTop_toBottomOf="@+id/editDescricaoNovo"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerDificuldadeNovo" android:layout_marginEnd="33dp"
+            android:layout_marginRight="33dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:id="@+id/textDetEstado2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:padding="5dp"
+            android:text="Status:"
+            app:layout_constraintEnd_toEndOf="@+id/textDetDificuldade2" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirmaNovo" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="41dp" android:layout_marginStart="41dp"/>
+    <Spinner
+            android:id="@+id/spinnerStatusNovo"
+            android:layout_width="253dp"
+            android:layout_height="34dp"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="@+id/spinnerDificuldadeNovo"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerDificuldadeNovo"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirmaNovo" android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:id="@+id/btnConfirmaNovo"
+            android:text="Confirmar"
+            android:padding="5dp"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="370dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="Nova Tarefa"
+            android:layout_width="182dp"
+            android:layout_height="38dp"
+            android:id="@+id/textView" android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.563" app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
