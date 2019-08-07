@@ -1,6 +1,7 @@
 package com.example.trabalho2;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
@@ -16,8 +17,7 @@ import java.util.Calendar;
 public class TarefaActivity extends AppCompatActivity {
     AgendaDBHelper AgendaHelper;
 
-    Cursor cursor;
-
+    public static final int VER_TAGS = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +40,13 @@ public class TarefaActivity extends AppCompatActivity {
         final EditText descricao = findViewById(R.id.editDetDescricao);
         final Spinner dificuldade = findViewById(R.id.spinnerDificuldade);
         final EditText limite = findViewById(R.id.editDetLimite);
-        final Spinner estado = findViewById(R.id.spinnerStatus);
+        final Spinner status = findViewById(R.id.spinnerStatus);
         Button btnConfirmar = findViewById(R.id.buttonConfirma);
         Button btnTags = findViewById(R.id.buttonTagsTarefa);
 
 
         dificuldade.setAdapter(new ArrayAdapter<Dificuldade>(this, android.R.layout.simple_selectable_list_item, Dificuldade.values()));
-        estado.setAdapter(new ArrayAdapter<Status>(this, android.R.layout.simple_selectable_list_item, Status.values()));
+        status.setAdapter(new ArrayAdapter<Status>(this, android.R.layout.simple_selectable_list_item, Status.values()));
 
 
 
@@ -66,11 +66,17 @@ public class TarefaActivity extends AppCompatActivity {
         c.moveToFirst();
         titulo.setText(c.getString(idxTitulo));
         descricao.setText(c.getString(idxDescricao));
-        dificuldade.setSelection(Dificuldade.getDificuldade(cursor.getString(idxDificuldade)).getValor());
+        dificuldade.setSelection(Dificuldade.getDificuldade(c.getString(idxDificuldade)).getValor());
         limite.setText(c.getString(idxDtLimite));
-        estado.setSelection(Status.getStatus(cursor.getString(idxStatus)).getValor());
+        status.setSelection(Status.getStatus(c.getString(idxStatus)).getValor());
 
-
+        btnTags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TarefaActivity.this, TagActivity.class);
+                startActivityForResult(intent, VER_TAGS);
+            }
+        });
 
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +87,7 @@ public class TarefaActivity extends AppCompatActivity {
                 values.put(AgendaContract.Tarefa.COLUMN_DIFICULDADE, dificuldade.getSelectedItem().toString());
                 values.put(AgendaContract.Tarefa.COLUMN_DT_LIMITE, limite.getText().toString());
                 values.put(AgendaContract.Tarefa.COLUMN_UPDATED_AT, Calendar.getInstance().getTime().toString());
-                values.put(AgendaContract.Tarefa.COLUMN_STATUS, estado.getSelectedItem().toString());
+                values.put(AgendaContract.Tarefa.COLUMN_STATUS, status.getSelectedItem().toString());
 
                 long id = db.update(AgendaContract.Tarefa.TABLE_NAME, values, selecao, args);
 

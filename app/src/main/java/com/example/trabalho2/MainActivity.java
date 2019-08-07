@@ -67,13 +67,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        btnGerenciarTags.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, GerenciarTagsActivity.class);
-//                startActivityForResult(intent, GERENCIAR_TAGS);
-//            }
-//        });
+        btnNovaTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NovaTagActivity.class);
+                startActivityForResult(intent, TAGS);
+            }
+        });
     }
 
     @Override

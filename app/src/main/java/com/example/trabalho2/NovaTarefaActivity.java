@@ -23,10 +23,12 @@ public class NovaTarefaActivity extends AppCompatActivity {
         final EditText titulo = findViewById(R.id.editTituloNovo);
         final EditText descricao = findViewById(R.id.editDescricaoNovo);
         final Spinner dificuldade = findViewById(R.id.spinnerDificuldadeNovo);
+        final Spinner status = findViewById(R.id.spinnerStatusNovo);
         final EditText dtLimite = findViewById(R.id.editDtLimiteNovo);
         Button btnConfirmar = findViewById(R.id.btnConfirmaNovo);
 
         dificuldade.setAdapter(new ArrayAdapter<Dificuldade>(this, android.R.layout.simple_selectable_list_item, Dificuldade.values()));
+        status.setAdapter(new ArrayAdapter<Status>(this, android.R.layout.simple_selectable_list_item, Status.values()));
 
 
         btnConfirmar.setOnClickListener(new View.OnClickListener() {

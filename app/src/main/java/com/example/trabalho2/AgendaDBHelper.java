@@ -17,14 +17,14 @@ public class AgendaDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(AgendaContract.Tarefa.CREATE_TABLE);
         sqLiteDatabase.execSQL(AgendaContract.Tag.CREATE_TABLE);
-        sqLiteDatabase.execSQL(AgendaContract.TarefaTag.CREATE_TABLE);
+        sqLiteDatabase.execSQL(AgendaContract.TagTarefa.CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(AgendaContract.Tarefa.DROP_TABLE);
         sqLiteDatabase.execSQL(AgendaContract.Tag.DROP_TABLE);
-        sqLiteDatabase.execSQL(AgendaContract.TarefaTag.DROP_TABLE);
+        sqLiteDatabase.execSQL(AgendaContract.TagTarefa.DROP_TABLE);
         onCreate(sqLiteDatabase);
     }
 }

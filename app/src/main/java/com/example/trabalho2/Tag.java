@@ -8,7 +8,7 @@ public class Tag {
     }
 
     public String getTitulo_tag() {
-        return titulo_tag;
+        return  this.titulo_tag;
     }
 
     public void setTitulo_tag(String titulo_tag) {

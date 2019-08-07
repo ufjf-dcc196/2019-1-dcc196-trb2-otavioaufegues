@@ -36,7 +36,7 @@ public final class AgendaContract {
         public static final String DROP_TABLE = String.format("DROP TABLE %s", TABLE_NAME);
     }
 
-    public static final class TarefaTag implements BaseColumns{
+    public static final class TagTarefa implements BaseColumns{
         public static final String TABLE_NAME = "tarefa_tag";
         public static final String COLUMN_ID_TAREFA =  "id_tarefa";
         public static final String COLUMN_ID_TAG = "id_tag";
